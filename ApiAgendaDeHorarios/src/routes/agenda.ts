@@ -1,12 +1,12 @@
 import { Router } from 'express';
-import { deleteProduct, getProduct, getProducts, postProduct, updateProduct } from '../controllers/agenda';
+import { deleteAgenda, getAgenda, getAgendas, postAgenda, updateAgenda } from '../controllers/agenda';
 
 const router = Router();
 
-router.get('/', getProducts);
-router.get('/:id', getProduct);
-router.delete('/:id', deleteProduct);
-router.post('/', postProduct);
-router.put('/:id', updateProduct);
+router.get('/', getAgendas);
+router.get('/:id', getAgenda);
+router.delete('/:id', deleteAgenda);
+router.post('/', postAgenda);
+router.put('/:id', updateAgenda);
 
 export default router;

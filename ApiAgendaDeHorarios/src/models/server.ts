@@ -1,6 +1,6 @@
 import express, { Application, Request, Response } from 'express';
 import cors from 'cors';
-import routesProduto from '../routes/agenda';
+import routesAgenda from '../routes/agenda';
 import db from "../db/connection"
 
 class Server {
@@ -28,7 +28,7 @@ class Server {
                 msg: 'API Working'
             })
         })
-        this.app.use('/api/agenda', routesProduto)
+        this.app.use('/api/agenda', routesAgenda)
     }
 
     midlewares() {

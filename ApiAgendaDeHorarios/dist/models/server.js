@@ -14,7 +14,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
 const cors_1 = __importDefault(require("cors"));
-const produto_1 = __importDefault(require("../routes/produto"));
+const agenda_1 = __importDefault(require("../routes/agenda"));
 const connection_1 = __importDefault(require("../db/connection"));
 class Server {
     constructor() {
@@ -36,7 +36,7 @@ class Server {
                 msg: 'API Working'
             });
         });
-        this.app.use('/api/produtos', produto_1.default);
+        this.app.use('/api/agenda', agenda_1.default);
     }
     midlewares() {
         this.app.use(express_1.default.json());

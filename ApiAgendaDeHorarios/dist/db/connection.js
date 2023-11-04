@@ -1,8 +1,8 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const sequelize_1 = require("sequelize");
-const sequelize = new sequelize_1.Sequelize('ormcrud', 'devrafael', 'zd!dh54WSA2', {
-    host: 'ormcrud.mysql.database.azure.com',
+const sequelize = new sequelize_1.Sequelize('dbname', 'db user', 'password', {
+    host: 'db host',
     dialect: 'mysql',
     dialectOptions: {
         ssl: {

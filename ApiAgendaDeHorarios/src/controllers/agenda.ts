@@ -1,45 +1,45 @@
 import { Request, Response } from 'express';
-import Produto from '../models/agenda';
+import Cadastro from '../models/agenda';
 
 // GET
 
 
-export const getProducts = async (req: Request, res: Response) => {
-    const listProducts = await Produto.findAll()
+export const getAgendas = async (req: Request, res: Response) => {
+    const listAgendas = await Cadastro.findAll()
 
-    res.json(listProducts)
+    res.json(listAgendas)
 }
 
 // SELECIONAR
 
 
-export const getProduct = async (req: Request, res: Response) => {
+export const getAgenda = async (req: Request, res: Response) => {
     const { id } = req.params;
-    const product = await Produto.findByPk(id);
+    const register = await Cadastro.findByPk(id);
 
-    if (product) {
-        res.json(product)
+    if (register) {
+        res.json(register)
     } else {
         res.status(404).json({
-            msg: `Não existe um produto com este id ${id}`
+            msg: `Não existe um cadastro com este id ${id}`
         })
     }
 }
 
 // DELETE
 
-export const deleteProduct = async (req: Request, res: Response) => {
+export const deleteAgenda = async (req: Request, res: Response) => {
     const { id } = req.params;
-    const product = await Produto.findByPk(id);
+    const register = await Cadastro.findByPk(id);
 
-    if (!product) {
+    if (!register) {
         res.status(404).json({
-            msg: `Não existe um produto com este id ${id}`
+            msg: `Não existe um cadastro com este id ${id}`
         })
     } else {
-        await product.destroy();
+        await register.destroy();
         res.json({
-            msg: 'Produto eliminado com sucesso!'
+            msg: 'Cadastro eliminado com sucesso!'
         })
     }
 
@@ -48,14 +48,14 @@ export const deleteProduct = async (req: Request, res: Response) => {
 // POST
 
 
-export const postProduct = async (req: Request, res: Response) => {
+export const postAgenda = async (req: Request, res: Response) => {
     const { body } = req;
 
     try {
-        await Produto.create(body);
+        await Cadastro.create(body);
 
         res.json({
-            msg: `O produto foi criado com sucesso!`
+            msg: `O cadastro foi criado com sucesso!`
         })
     } catch (error) {
         console.log(error);
@@ -67,23 +67,23 @@ export const postProduct = async (req: Request, res: Response) => {
 
 // UPDATE
 
-export const updateProduct = async (req: Request, res: Response) => {
+export const updateAgenda = async (req: Request, res: Response) => {
     const { body } = req;
     const { id } = req.params;
 
     try {
 
-        const product = await Produto.findByPk(id);
+        const register = await Cadastro.findByPk(id);
 
-    if(product) {
-        await product.update(body);
+    if(register) {
+        await register.update(body);
         res.json({
-            msg: 'O produto foi atualizado com sucesso'
+            msg: 'O cadastro foi atualizado com sucesso'
         })
 
     } else {
         res.status(404).json({
-            msg: `Não existe um produto com este id ${id}`
+            msg: `Não existe um cadastro com este id ${id}`
         })
     }
         
