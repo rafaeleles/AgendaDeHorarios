@@ -1,0 +1,45 @@
+.d-inline-block {
+    margin-top: 3rem;
+    background-color: #f1f1f1;
+    width: 90%;
+}
+
+h1 {
+    margin: 2rem;
+    width: 100%;
+}
+.header {
+    margin: auto;
+}
+
+form {
+    display: grid;
+    grid-template-rows: 10vh 10vh;
+    grid-template-columns: 60vh 60vh 60vh;
+}
+
+input {
+    width: 30vh;
+    height: 6vh;
+    background-color: #f1f1f1;
+    border: none;
+    border-bottom: solid 2px rgb(114, 114, 114);
+    transition: 0.3s
+}
+
+input:focus {
+    outline: none;
+    border-bottom: solid 2px rgb(0, 110, 255);
+    transform: scale(1.01);
+    transition: 0.3s
+}
+
+.submit {
+    margin: 1rem 2rem;
+    width: 40%;
+    height: 60%;
+}
+
+.m4 {
+    text-align: center;
+}

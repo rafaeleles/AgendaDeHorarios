@@ -23,10 +23,10 @@ const Home = () => {
   return (
     <Fragment> 
         <div className='m4'>
-            <div className='text-center'>
+            <div className='header'>
                 <Cadastro/>
             </div>
-            <Table striped bordered hover className='m-5' >
+            <Table striped bordered hover className='m-5' style={{width: "95%"}} >
                 <thead>
                     <tr>
                         <th>
@@ -68,7 +68,7 @@ const Home = () => {
                                     <td>
                                         {item.date}
                                     </td>
-                                    <td>
+                                    <td style={{width: "20px"}}>
                                         <Button onClick= {() => handleDelete(item.id)}> DELETE </Button>
                                     </td>
                                 </tr>
