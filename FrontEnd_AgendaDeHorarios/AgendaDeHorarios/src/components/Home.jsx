@@ -1,20 +1,14 @@
 import React, { Fragment } from 'react';
-import { Button, Table } from 'react-bootstrap';
+import { Button, Table} from 'react-bootstrap';
 import "bootstrap/dist/css/bootstrap.min.css"
 import Teachers from './Teachers';
-import DatePicker from './DatePicker';
-import { Link, useNavigate } from "react-router-dom"
+import Cadastro from './Cadastro';
+import { useNavigate } from "react-router-dom"
 
 
 const Home = () => {
 
     let history = useNavigate();
-
-    const handleEdit= (id, name, subject) => {
-        localStorage.setItem('name', name);
-        localStorage.setItem('subject', subject);
-        localStorage.setItem('id', id);
-    }
 
     const handleDelete = (id) => {
         var index = Teachers.map(function(e){
@@ -28,8 +22,11 @@ const Home = () => {
 
   return (
     <Fragment> 
-        <div style={{margin:"10rem"}}>
-            <Table striped bordered hover size="sm">
+        <div className='m4'>
+            <div className='text-center'>
+                <Cadastro/>
+            </div>
+            <Table striped bordered hover className='m-5' >
                 <thead>
                     <tr>
                         <th>
@@ -39,7 +36,13 @@ const Home = () => {
                             Matéria
                         </th>
                         <th> 
-                            
+                            Turma
+                        </th>
+                        <th> 
+                            Horas
+                        </th>
+                        <th> 
+                            Data
                         </th>
                     </tr>
                 </thead>
@@ -57,24 +60,25 @@ const Home = () => {
                                         {item.subject}
                                     </td>
                                     <td>
-                                        <Link to={`/edit`}>
-                                        <Button onClick= {() => handleEdit(item.id, item.name, item.subject)}> Edit </Button>
-                                        </Link> &nbsp;
+                                        {item.classname}
+                                    </td>
+                                    <td>
+                                        {item.hours}
+                                    </td>
+                                    <td>
+                                        {item.date}
+                                    </td>
+                                    <td>
                                         <Button onClick= {() => handleDelete(item.id)}> DELETE </Button>
-                                        <DatePicker />
                                     </td>
                                 </tr>
                             )
                         })
                         :
-                        "Nenhum informação disponível"
+                        "Nenhuma informação disponível"
                     }
                 </tbody>
             </Table> 
-            <br></br>
-            <Link className="d-grip gap-2" to="/create">
-                <Button size="lg"> Create </Button>
-            </Link>
         </div>
     </Fragment>
   )
